@@ -1,0 +1,8 @@
+name    'wfarr-osx_defaults'
+version '0.1.0'
+source 'https://github.com/wfarr/wfarr-osx_defaults'
+author 'wfarr'
+license 'APACHE2'
+summary 'Puppet provider for OS X defaults'
+description 'Puppet module for managing OS X defaults system'
+project_page 'https://github.com/wfarr/wfarr-osx_defaults'
