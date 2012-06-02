@@ -12,12 +12,19 @@ Puppet::Type.type(:defaults).provide(:osx) do
     defaults(:write, resource[:domain], resource[:key], type_and_val)
   end
 
+  def defaults(command)
+    if resource[:user]
+      asuser(resource[:user]) { super }
+    end
+  end
+
   def destroy
     defaults(:delete, resource[:domain], resource[:key])
   end
 
   def exists?
-    `/usr/bin/defaults read #{resource[:domain]} | grep '#{resource[:key]}'`
+    su_str = "su - #{resource[:user]}" if resource[:user]
+    `#{su_str} /usr/bin/defaults read #{resource[:domain]} | grep '#{resource[:key]}'`
     if $? == 0
       defaults(:read, resource[:domain], resource[:key]).split(' ')[1] == resource[:value].to_s
     else
