@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'pry'
 
 Puppet::Type.type(:defaults).provide(:osx) do
   desc "Manage OSX defaults"
