@@ -8,23 +8,18 @@ boolean, integer, or string types.
 ## Requirements
 
 * Ruby 1.8 or 1.9
-* Puppet 2.7.0 or later
+* Puppet 2.6.0 or later
 * OS X
 
 ## Usage
 
 ```
-defaults { 'translucent_dock_icons':
-  domain => 'com.apple.dock',
-  key    => 'showhidden',
-  value  => true,
+osx_defaults { "require pass at screensaver":
   ensure => present,
-  notify => Exec['restart_dock']
-}
-
-exec { 'restart_dock':
-  command     => 'killall Dock',
-  refreshonly => true
+  domain => 'com.apple.screensaver',
+  key    => 'askForPassword',
+  value  => 1,
+  user   => 'dummy'
 }
 ```
 
