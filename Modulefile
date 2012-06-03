@@ -1,5 +1,5 @@
 name    'wfarr-osx_defaults'
-version '0.1.1'
+version '0.1.2'
 source 'https://github.com/wfarr/puppet-osx_defaults'
 author 'wfarr'
 license 'APACHE2'
