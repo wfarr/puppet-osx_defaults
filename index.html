@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Puppet-osx defaults : Simple Puppet provider for OSX `defaults`" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Puppet-osx defaults</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/wfarr/puppet-osx_defaults">View on GitHub</a>
+
+          <h1 id="project_title">Puppet-osx defaults</h1>
+          <h2 id="project_tagline">Simple Puppet provider for OSX `defaults`</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/wfarr/puppet-osx_defaults/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/wfarr/puppet-osx_defaults/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Defaults</h1>
+
+<p>This is a simple puppet module for managing the defaults system in OS X.</p>
+
+<p>It currently has support for defaults domain keys whose values are
+boolean, integer, or string types.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Ruby 1.8 or 1.9</li>
+<li>Puppet 2.6.0 or later</li>
+<li>OS X</li>
+</ul><h2>Usage</h2>
+
+<pre><code>osx_defaults { "require pass at screensaver":
+  ensure =&gt; present,
+  domain =&gt; 'com.apple.screensaver',
+  key    =&gt; 'askForPassword',
+  value  =&gt; 1,
+  user   =&gt; 'dummy'
+}
+</code></pre>
+
+<h2>Contributing</h2>
+
+<ul>
+<li>Fork It</li>
+<li>Fix It</li>
+<li>Send a Pull Request</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Puppet-osx defaults maintained by <a href="https://github.com/wfarr">wfarr</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
