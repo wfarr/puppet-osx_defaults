@@ -4,8 +4,17 @@ define osx_defaults(
   $key    = undef,
   $value  = undef,
   $user   = undef,
+  $host   = undef,
 ) {
   $defaults_cmd = "/usr/bin/defaults"
+
+  if $host != undef {
+    if $host == 'currentHost' {
+      $defaults_cmd = "${defaults_cmd} -currentHost"
+    } else {
+      $defaults_cmd = "${defaults_cmd} -host ${host}"
+    }
+  }
 
   if $ensure == 'present' {
     if ($domain != undef) and ($key != undef) and ($value != undef) {
