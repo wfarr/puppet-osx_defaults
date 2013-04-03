@@ -1,10 +1,31 @@
+# Defined type: osx_defaults
+#
+# Manages the defaults system in Mac OS X.
+#
+# It currently has support for defaults domain keys whose values are
+# string, data, int, float, bool, date, array, array-add, dict and dict-add. The
+# default key type is string.
+#
+# Refer to the defaults(1) manpage for further information on how to set key 
+# values.
+#
+# Usage:
+# osx_defaults {' require pass at screensaver':
+#   ensure => present,
+#   domain => 'com.apple.screensaver',
+#   key    => 'askForPassword',
+#   value  => 1,
+#   user   => 'dummy',
+#   type   => 'int'
+# }
+#
 define osx_defaults(
   $ensure = 'present',
   $domain = undef,
   $key    = undef,
   $value  = undef,
   $host   = undef,
-  $user   = 'root',
+  $user   = undef,
   $type   = 'string',
 ) {
   $defaults_cmd = '/usr/bin/defaults'

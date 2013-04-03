@@ -3,7 +3,11 @@
 This is a simple puppet module for managing the defaults system in OS X.
 
 It currently has support for defaults domain keys whose values are
-boolean, integer, or string types.
+string, data, int, float, bool, date, array, array-add, dict and dict-add. The
+default key type is string.
+
+Refer to the [defaults(1)](https://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man1/defaults.1.html) manpage for further information on how to set key
+values.
 
 ## Requirements
 
@@ -19,7 +23,8 @@ osx_defaults { "require pass at screensaver":
   domain => 'com.apple.screensaver',
   key    => 'askForPassword',
   value  => 1,
-  user   => 'dummy'
+  user   => 'dummy',
+  type   => 'int'
 }
 ```
 
