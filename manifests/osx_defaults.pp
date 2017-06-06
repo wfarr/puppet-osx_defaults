@@ -18,8 +18,8 @@ define osx_defaults(
   if $ensure == 'present' {
     if ($domain != undef) and ($key != undef) and ($value != undef) {
       exec { "osx_defaults write ${domain}:${key}=>${value}":
-        command => "${defaults_cmd} $hostarg write ${domain} ${key} ${value}",
-        unless  => "${defaults_cmd} $hostarg read ${domain} ${key}|egrep '^${value}$'",
+        command => "${defaults_cmd} $hostarg write ${domain} '${key}' ${value}",
+        unless  => "${defaults_cmd} $hostarg read ${domain} '${key}'|egrep '^${value}$'",
         user    => $user
       }
     } else {
@@ -30,7 +30,7 @@ define osx_defaults(
     }
   } else {
     exec { "osx_defaults delete ${domain}:${key}":
-      command => "${defaults_cmd} $hostarg delete ${domain} ${key}",
+      command => "${defaults_cmd} $hostarg delete ${domain} '${key}'",
       onlyif  => "${defaults_cmd} $hostarg read ${domain} | grep ${key}",
       user    => $user
     }
